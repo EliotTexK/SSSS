@@ -58,3 +58,6 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+# We don't need UserSettings or Packages directories
+Packages
+UserSettings
