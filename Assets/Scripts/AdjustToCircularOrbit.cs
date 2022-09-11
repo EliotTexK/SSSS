@@ -19,7 +19,7 @@ public class AdjustToCircularOrbit : MonoBehaviour
         float gravForce = gravConstant * (myRigidBody2D.mass * myStar.attachedRigidbody.mass) / (distance * distance);
         Vector2 grav = (vectorDifference.normalized * gravForce);
         Vector2 tangent = new Vector2(grav.y, -grav.x);
-        myRigidBody2D.velocity = tangent;
+        myRigidBody2D.AddForce(tangent);
     }
 
     // Update is called once per frame
