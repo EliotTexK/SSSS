@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(OrbitTarget))]
 public class Control : MonoBehaviour
 {
-    private Rigidbody2D myRigidBody2D;
-    public float controlIntensity = 1000f;
+    OrbitTarget myOrbitTarget;
+    public float controlIntensity = 0.01f;
     void Start() {
-        myRigidBody2D = GetComponent<Rigidbody2D>();
+        myOrbitTarget = GetComponent<OrbitTarget>();
     }
     void Update()
     {
         float forceX = Input.GetAxisRaw("Horizontal") * Time.deltaTime * controlIntensity;
         float forceY = Input.GetAxisRaw("Vertical") * Time.deltaTime * controlIntensity;
 
-        myRigidBody2D.AddForce(new Vector2(forceX, forceY));
+        myOrbitTarget.velocity += new Vector2(forceX, forceY) * Time.deltaTime;
     }
 }

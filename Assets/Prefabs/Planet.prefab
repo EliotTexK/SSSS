@@ -10,11 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8271723373943988233}
   - component: {fileID: 8271723373943988238}
-  - component: {fileID: 8271723373943988239}
   - component: {fileID: 8271723373943988236}
   - component: {fileID: 8271723373943988237}
   - component: {fileID: 8271723373943988242}
-  - component: {fileID: 8271723373943988243}
   m_Layer: 0
   m_Name: Planet
   m_TagString: Untagged
@@ -89,27 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &8271723373943988239
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8271723373943988240}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!58 &8271723373943988236
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -138,6 +115,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06335afea432f5a4f95e797d8cf032fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myStar: {fileID: 0}
+  density: 0.1
+  velocity: {x: 0, y: 0}
+  adjustOrbitIntensity: 2
 --- !u!114 &8271723373943988242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,17 +131,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2b3634be1ec0ee7d8ab780123bfee24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controlIntensity: 1000
---- !u!114 &8271723373943988243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8271723373943988240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cdf6e2d28f3d53baa172798826fe97d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myStar: {fileID: 0}
+  controlIntensity: 10
