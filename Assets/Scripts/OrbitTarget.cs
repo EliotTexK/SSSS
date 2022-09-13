@@ -6,7 +6,6 @@ using UnityEngine;
 [RequireComponent(typeof(CircleCollider2D))]
 public class OrbitTarget : MonoBehaviour
 {
-    public bool updatePhysics = false;
     public Transform target;
     private float mass;
     public Vector2 velocity;
@@ -25,7 +24,7 @@ public class OrbitTarget : MonoBehaviour
     }
 
     void FixedUpdate() {
-        if (updatePhysics) {
+        if (GameManager.Instance.updatePhysics) {
             if (target)
             {
                 // apply gravitational acceleration
