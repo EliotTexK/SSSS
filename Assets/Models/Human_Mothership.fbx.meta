@@ -1,11 +1,19 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 717f187bb7f93ad2b90d90d60e49c7d8
+=======
+guid: ab0f75b0ba94e614c9157db5e3f1ddfb
+>>>>>>> 963613293a58529d1df4e806322f48628c86ef06
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
   externalObjects: {}
   materials:
+<<<<<<< HEAD
     materialImportMode: 0
+=======
+    materialImportMode: 2
+>>>>>>> 963613293a58529d1df4e806322f48628c86ef06
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -24,7 +32,11 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
+<<<<<<< HEAD
     animationCompression: 3
+=======
+    animationCompression: 1
+>>>>>>> 963613293a58529d1df4e806322f48628c86ef06
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -35,7 +47,11 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
+<<<<<<< HEAD
     globalScale: 0.1
+=======
+    globalScale: 1
+>>>>>>> 963613293a58529d1df4e806322f48628c86ef06
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -66,7 +82,11 @@ ModelImporter:
     secondaryUVMinLightmapResolution: 40
     secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
+<<<<<<< HEAD
     useFileScale: 0
+=======
+    useFileScale: 1
+>>>>>>> 963613293a58529d1df4e806322f48628c86ef06
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -88,14 +108,22 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+<<<<<<< HEAD
     globalScale: 0.1
+=======
+    globalScale: 1
+>>>>>>> 963613293a58529d1df4e806322f48628c86ef06
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
+<<<<<<< HEAD
   animationType: 0
+=======
+  animationType: 2
+>>>>>>> 963613293a58529d1df4e806322f48628c86ef06
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
