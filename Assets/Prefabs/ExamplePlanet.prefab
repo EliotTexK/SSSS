@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6949067787733171735}
   - component: {fileID: 8582574852532289375}
   - component: {fileID: 9192280333730501345}
+  - component: {fileID: 8458377541602184627}
   m_Layer: 0
   m_Name: PlanetMesh
   m_TagString: Untagged
@@ -83,6 +84,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5786302990380506936}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &8458377541602184627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5786302990380506936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e83771b8ffc38779a9449890e24c884, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: {x: 0, y: 0, z: 0}
+  toSpin: {fileID: 0}
 --- !u!1 &7637875902227697859
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,9 +109,8 @@ GameObject:
   - component: {fileID: 7637875902227697860}
   - component: {fileID: 7637875902227697857}
   - component: {fileID: 7637875902227697856}
-  - component: {fileID: 2426365697097085084}
   m_Layer: 0
-  m_Name: Planet 1
+  m_Name: ExamplePlanet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -146,22 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06335afea432f5a4f95e797d8cf032fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  updatePhysics: 0
   target: {fileID: 0}
   velocity: {x: 0, y: 0}
   adjustOrbitIntensity: 2
   adjustActual: 0
---- !u!114 &2426365697097085084
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7637875902227697859}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e83771b8ffc38779a9449890e24c884, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  direction: {x: 0, y: 0, z: 0}
-  toSpin: {fileID: 8582574852532289375}
