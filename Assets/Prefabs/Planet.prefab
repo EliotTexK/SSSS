@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6986158728524864524}
   - component: {fileID: 6986158728524864523}
   - component: {fileID: 6986158728524864522}
+  - component: {fileID: 983900285857772608}
   m_Layer: 0
   m_Name: Planet
   m_TagString: Untagged
@@ -118,3 +119,18 @@ MonoBehaviour:
   velocity: {x: 0, y: 0}
   adjustOrbitIntensity: 2
   adjustActual: 0
+--- !u!114 &983900285857772608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6986158728524864521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8de0e18e918444e428e853b207374690, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  width: 256
+  height: 256
+  scale: 0
