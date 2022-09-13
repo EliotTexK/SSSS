@@ -44,8 +44,6 @@ public class GameManager : MonoBehaviour
     public int currentPlayer;
     void Start()
     {
-        players[0] = new playerStats("Player1", true);
-        players[1] = new playerStats();
         // Add in the sun and some planets
         GameObject sun = Instantiate(sunPrefab);
         for (float i = maxPlanetSpacing; i < (maxDistance * 0.75); i += Random.Range(minPlanetSpacing, maxPlanetSpacing))
@@ -60,8 +58,8 @@ public class GameManager : MonoBehaviour
 
     void OnGUI()
     {
-        GUI.Box(new Rect(0, 0, 200, 50), players[currentPlayer].name);
-        GUI.Box(new Rect(0,50,200,50), players[currentPlayer].QSB.ToString());
+        //GUI.Box(new Rect(0, 0, 200, 50), players[currentPlayer].name);
+        //GUI.Box(new Rect(0,50,200,50), players[currentPlayer].QSB.ToString());
     }
 
     // Update is called once per frame
