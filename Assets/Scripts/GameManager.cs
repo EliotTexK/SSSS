@@ -28,11 +28,11 @@ public class GameManager : MonoBehaviour
     public bool updatePhysics = false;
     struct playerStats {
         public string name; // name your empire!
-        public bool type; // 0 - human, 1 - alien
+        public bool isAlien;
         public int QSB; // "quadrillion spaceBucks": the economy is very inflated
         public playerStats(string name, bool type) {
             this.name = name;
-            this.type = type;
+            this.isAlien = type;
             if (type) {
                 QSB = 10; // alien starting money
             } else {
@@ -40,13 +40,15 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-    List<playerStats> players;
-    public int currentPlayer;
+    playerStats player1, player2;
     void Start()
     {
+        player1 = new playerStats("Player 1", true);
+        player2 = new playerStats("Player 2", false);
         // Add in the sun and some planets
         GameObject sun = Instantiate(sunPrefab);
-        for (float i = maxPlanetSpacing; i < (maxDistance * 0.75); i += Random.Range(minPlanetSpacing, maxPlanetSpacing))
+        for (float i = Random.Range(minPlanetSpacing, maxPlanetSpacing);
+             i < (maxDistance * 0.75); i += Random.Range(minPlanetSpacing, maxPlanetSpacing))
         {
             // give the planets random scale and position (within boundaries)
             GameObject planet = Instantiate(planetPrefabs[Random.Range(0, planetPrefabs.Count)]);
@@ -58,8 +60,13 @@ public class GameManager : MonoBehaviour
 
     void OnGUI()
     {
-        //GUI.Box(new Rect(0, 0, 200, 50), players[currentPlayer].name);
-        //GUI.Box(new Rect(0,50,200,50), players[currentPlayer].QSB.ToString());
+        GUI.Box(new Rect(0, 0, 100, 50), player1.name);
+        string QSBString = "Q$B: " + player1.QSB.ToString();
+        GUI.Box(new Rect(0,50,100,50), QSBString);
+        
+        GUI.Box(new Rect(Screen.width - 100, 0, 100, 50), player2.name);
+        QSBString = "Q$B: " + player2.QSB.ToString();
+        GUI.Box(new Rect(Screen.width - 100, 50, 100, 50), QSBString);
     }
 
     // Update is called once per frame

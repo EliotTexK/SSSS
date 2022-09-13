@@ -2,22 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// gravitates toward other objects by the inverse square law
+// orbits a target, adjusts orbit to be circular and stable
 [RequireComponent(typeof(CircleCollider2D))]
+[RequireComponent(typeof(NewtonianPhysics))]
 public class OrbitTarget : MonoBehaviour
 {
     public Transform target;
-    private float mass;
-    public Vector2 velocity;
-    const float gravConstant = 15f;
-    // adjust orbit to be stable and circular
+    NewtonianPhysics myPhysics;
     public float adjustOrbitIntensity = 2f;
     // the adjustment value decreases as time goes on
     public float adjustActual;
     // Start is called before the first frame update
     void Start() {
+        myPhysics = GetComponent<NewtonianPhysics>();
         CircleCollider2D myCollider = GetComponent<CircleCollider2D>();
-        mass = Mathf.PI * myCollider.radius * myCollider.radius;
+        myPhysics.mass = Mathf.PI * myCollider.radius * myCollider.radius;
         // give an initial velocity that will stabilize orbit
         applyInitialForce();
         adjustActual = adjustOrbitIntensity * 4;
@@ -30,22 +29,22 @@ public class OrbitTarget : MonoBehaviour
                 // apply gravitational acceleration
                 Vector2 targetDir = (target.position - transform.position);
                 float distance = targetDir.magnitude;
-                float gravScalar = gravConstant * mass / (distance * distance);
+                float gravScalar = myPhysics.personalGravConstant * myPhysics.mass / (distance * distance);
                 Vector2 gravAccel = targetDir.normalized * gravScalar;
-                velocity += gravAccel * Time.fixedDeltaTime;
+                myPhysics.velocity += gravAccel * Time.fixedDeltaTime;
                 // adjust orbit
                 Vector2 perpendicularNorm = Vector2.Perpendicular(targetDir).normalized;
-                Vector2 velCentrip = Vector2.Dot(velocity, perpendicularNorm) * perpendicularNorm;
-                Vector2 velTowards = Vector2.Dot(velocity, targetDir.normalized) * targetDir.normalized;
+                Vector2 velCentrip = Vector2.Dot(myPhysics.velocity, perpendicularNorm) * perpendicularNorm;
+                Vector2 velTowards = Vector2.Dot(myPhysics.velocity, targetDir.normalized) * targetDir.normalized;
                 // add centripetal
-                velocity += velCentrip * velTowards.magnitude * Time.fixedDeltaTime * adjustActual;
-                velocity -= velTowards * Time.fixedDeltaTime * adjustActual;
+                myPhysics.velocity += velCentrip * velTowards.magnitude * Time.fixedDeltaTime * adjustActual;
+                myPhysics.velocity -= velTowards * Time.fixedDeltaTime * adjustActual;
             }
             // adjust orbit more during the first few seconds of gameplay
             if (adjustActual > adjustOrbitIntensity/4) {
                 adjustActual -= Time.fixedDeltaTime;
             }
-            transform.Translate(velocity);
+            transform.Translate(myPhysics.velocity);
         }
     }
 
@@ -53,8 +52,8 @@ public class OrbitTarget : MonoBehaviour
         Vector2 targetDir = (target.position - transform.position);
         float distance = targetDir.magnitude;
         Vector2 perpendicularNorm = Vector2.Perpendicular(targetDir).normalized;
-        float gravForce = gravConstant * mass / (distance * distance);
-        velocity = perpendicularNorm * (0.1f + 0.05f * gravForce);
+        float gravForce = myPhysics.personalGravConstant * myPhysics.mass / (distance * distance);
+        myPhysics.velocity = perpendicularNorm * (0.1f + 0.05f * gravForce);
     }
 
     private void DrawPhysicsVector(Vector2 vector, float scale) {

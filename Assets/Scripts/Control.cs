@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(OrbitTarget))]
+[RequireComponent(typeof(NewtonianPhysics))]
 public class Control : MonoBehaviour
 {
-    OrbitTarget myOrbitTarget;
+    NewtonianPhysics myNewtonianPhysics;
     public float controlIntensity = 0.01f;
     void Start() {
-        myOrbitTarget = GetComponent<OrbitTarget>();
+        myNewtonianPhysics = GetComponent<NewtonianPhysics>();
     }
     void Update()
     {
         float forceX = Input.GetAxisRaw("Horizontal") * Time.deltaTime * controlIntensity;
         float forceY = Input.GetAxisRaw("Vertical") * Time.deltaTime * controlIntensity;
 
-        myOrbitTarget.velocity += new Vector2(forceX, forceY) * Time.deltaTime;
+        myNewtonianPhysics.velocity += new Vector2(forceX, forceY) * Time.deltaTime;
     }
 }
