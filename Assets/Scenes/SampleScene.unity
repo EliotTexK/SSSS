@@ -159,9 +159,13 @@ MonoBehaviour:
   maxDistance: 40
   minPlanetSpacing: 3
   maxPlanetSpacing: 5
+<<<<<<< HEAD
   updatePhysics: 1
   turnLength: 5
   turnTimer: 5
+=======
+  updatePhysics: 0
+>>>>>>> cdd770345abcc6d163d3e31f5fcd6fe5168f6707
 --- !u!4 &494240365
 Transform:
   m_ObjectHideFlags: 0
