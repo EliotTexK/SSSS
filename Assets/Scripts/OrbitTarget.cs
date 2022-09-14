@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // orbits a target, adjusts orbit to be circular and stable
-[RequireComponent(typeof(CircleCollider2D))]
 [RequireComponent(typeof(NewtonianPhysics))]
 public class OrbitTarget : MonoBehaviour
 {
@@ -15,8 +14,6 @@ public class OrbitTarget : MonoBehaviour
     // Start is called before the first frame update
     void Start() {
         myPhysics = GetComponent<NewtonianPhysics>();
-        CircleCollider2D myCollider = GetComponent<CircleCollider2D>();
-        myPhysics.mass = Mathf.PI * myCollider.radius * myCollider.radius;
         // give an initial velocity that will stabilize orbit
         applyInitialForce();
         adjustActual = adjustOrbitIntensity * 4;
@@ -29,7 +26,7 @@ public class OrbitTarget : MonoBehaviour
                 // apply gravitational acceleration
                 Vector2 targetDir = (target.position - transform.position);
                 float distance = targetDir.magnitude;
-                float gravScalar = myPhysics.personalGravConstant * myPhysics.mass / (distance * distance);
+                float gravScalar = NewtonianPhysics.gravConstant * myPhysics.mass / (distance * distance);
                 Vector2 gravAccel = targetDir.normalized * gravScalar;
                 myPhysics.velocity += gravAccel * Time.fixedDeltaTime;
                 // adjust orbit
@@ -44,7 +41,6 @@ public class OrbitTarget : MonoBehaviour
             if (adjustActual > adjustOrbitIntensity/4) {
                 adjustActual -= Time.fixedDeltaTime;
             }
-            transform.Translate(myPhysics.velocity);
         }
     }
 
@@ -52,7 +48,7 @@ public class OrbitTarget : MonoBehaviour
         Vector2 targetDir = (target.position - transform.position);
         float distance = targetDir.magnitude;
         Vector2 perpendicularNorm = Vector2.Perpendicular(targetDir).normalized;
-        float gravForce = myPhysics.personalGravConstant * myPhysics.mass / (distance * distance);
+        float gravForce = NewtonianPhysics.gravConstant * myPhysics.mass / (distance * distance);
         myPhysics.velocity = perpendicularNorm * (0.1f + 0.05f * gravForce);
     }
 

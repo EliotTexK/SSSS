@@ -155,11 +155,13 @@ MonoBehaviour:
   sunPrefab: {fileID: 9202140721813140466, guid: 21cf378e77bb5331b8210a0b49efcfdc, type: 3}
   planetPrefabs:
   - {fileID: 3873130395066242556, guid: b6e75f2846b009a279d2411b3ba36dac, type: 3}
+  humanMothershipPrefab: {fileID: 4537192645525628176, guid: 146474ce75e37d80c8f50bc71eddcafb, type: 3}
   maxDistance: 40
   minPlanetSpacing: 3
   maxPlanetSpacing: 5
-  updatePhysics: 0
-  currentPlayer: 0
+  updatePhysics: 1
+  turnLength: 5
+  turnTimer: 5
 --- !u!4 &494240365
 Transform:
   m_ObjectHideFlags: 0
