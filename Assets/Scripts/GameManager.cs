@@ -59,12 +59,12 @@ public class GameManager : MonoBehaviour
     void FixedUpdate()
     {
         // wait turns
-        if (updatePhysics) {
-            turnTimer -= Time.fixedDeltaTime;
-            if (turnTimer <= 0) {
-                updatePhysics = false;
-                turnTimer = turnLength;
-            }
-        }
+        // if (updatePhysics) {
+        //     turnTimer -= Time.fixedDeltaTime;
+        //     if (turnTimer <= 0) {
+        //         updatePhysics = false;
+        //         turnTimer = turnLength;
+        //     }
+        // }
     }
 }

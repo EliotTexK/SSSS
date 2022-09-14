@@ -48,8 +48,8 @@ public class Destructible : MonoBehaviour
                 Destroy(this.gameObject,0.05f);
                 // add large explosion effect
             }
-            if (transform.position.magnitude > GameManager.Instance.maxDistance) {
-                Destroy(this.gameObject,1.5f);
+            if (transform.position.magnitude > GameManager.Instance.maxDistance * 1.5f) {
+                health -= Time.fixedDeltaTime;
             }
         }
     }

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8201711293074506321}
   - component: {fileID: -8376284882446445007}
   - component: {fileID: 711811871278415122}
+  - component: {fileID: 6088411091883262626}
   m_Layer: 0
   m_Name: HumanMothership
   m_TagString: Untagged
@@ -189,6 +190,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 710355210728467592, guid: 5107367bed13ee2cba91de841eee3610, type: 3}
   firingRadius: 4
+--- !u!114 &6088411091883262626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4537192645525628176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2b3634be1ec0ee7d8ab780123bfee24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controlIntensity: 100
 --- !u!1001 &4537192647315853476
 PrefabInstance:
   m_ObjectHideFlags: 0

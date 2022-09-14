@@ -6,14 +6,14 @@ using UnityEngine;
 public class Control : MonoBehaviour
 {
     NewtonianPhysics myNewtonianPhysics;
-    public float controlIntensity = 0.01f;
+    public float controlIntensity = 10f;
     void Start() {
         myNewtonianPhysics = GetComponent<NewtonianPhysics>();
     }
-    void Update()
+    void FixedUpdate()
     {
-        float forceX = Input.GetAxisRaw("Horizontal") * Time.deltaTime * controlIntensity;
-        float forceY = Input.GetAxisRaw("Vertical") * Time.deltaTime * controlIntensity;
+        float forceX = Input.GetAxisRaw("Horizontal") * Time.fixedDeltaTime * controlIntensity;
+        float forceY = Input.GetAxisRaw("Vertical") * Time.fixedDeltaTime * controlIntensity;
 
         myNewtonianPhysics.velocity += new Vector2(forceX, forceY) * Time.deltaTime;
     }

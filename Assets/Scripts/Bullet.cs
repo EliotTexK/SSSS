@@ -38,7 +38,7 @@ public class Bullet : MonoBehaviour
                 myPhysics.velocity = Vector2.zero;
                 Destroy(this.gameObject);
             }
-            if (transform.position.magnitude > GameManager.Instance.maxDistance) {
+            if (transform.position.magnitude > GameManager.Instance.maxDistance * 2f) {
                 Destroy(this.gameObject, 1.5f);
             }
         }
