@@ -159,7 +159,6 @@ MonoBehaviour:
   minPlanetSpacing: 3
   maxPlanetSpacing: 5
   updatePhysics: 0
-  currentPlayer: 0
 --- !u!4 &494240365
 Transform:
   m_ObjectHideFlags: 0
