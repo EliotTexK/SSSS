@@ -29,7 +29,7 @@ public class Bullet : MonoBehaviour
                 }
                 NewtonianPhysics otherPhysics = collisions[0].GetComponent<NewtonianPhysics>();
                 if (otherPhysics) {
-                    otherPhysics.velocity += 0.2f * myPhysics.velocity * myPhysics.mass / otherPhysics.mass;
+                    otherPhysics.velocity += 0.1f * myPhysics.velocity * myPhysics.mass / otherPhysics.mass;
                 }
                 Destructible otherDest = collisions[0].GetComponent<Destructible>();
                 if (otherDest) {

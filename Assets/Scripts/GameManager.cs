@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> planetPrefabs;
     // Max distance before out-of-bounds
     public GameObject humanMothershipPrefab;
-    public float maxDistance = 30f;
+    public float maxDistance = 40f;
     // Minimum and maximum for deciding how far to space planets
 
     public float minPlanetSpacing = 3f;
@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
         // Add in the sun and some planets
         GameObject sun = Instantiate(sunPrefab);
         for (float i = Random.Range(minPlanetSpacing, maxPlanetSpacing);
-             i < (maxDistance * 0.75); i += Random.Range(minPlanetSpacing, maxPlanetSpacing))
+             i < (maxDistance * 0.75f); i += Random.Range(minPlanetSpacing, maxPlanetSpacing))
         {
             // give the planets random scale and position (within boundaries)
             GameObject planet = Instantiate(planetPrefabs[Random.Range(0, planetPrefabs.Count)]);
@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
             planet.GetComponent<OrbitTarget>().target = sun.transform;
         }
         Vector2 randV2 = new Vector2(Random.value * 2f - 1f, Random.value * 2f - 1f).normalized;
-        float placement = Random.Range(maxDistance/2, maxDistance);
+        float placement = Random.Range(maxDistance * 0.25f, maxDistance * 0.75f);
         GameObject hMotherShip = GameObject.Instantiate(humanMothershipPrefab, randV2 * placement, Quaternion.identity);
         hMotherShip.GetComponent<OrbitTarget>().target = sun.transform;
     }

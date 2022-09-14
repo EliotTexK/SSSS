@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abc48fc5f07a08ec9abbd9f6d48df499, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 1823366484143701550, guid: eb7e22b933b952fbc9344cd5f3884e68, type: 3}
+  bulletPrefab: {fileID: 710355210728467592, guid: 5107367bed13ee2cba91de841eee3610, type: 3}
   firingRadius: 4
 --- !u!1001 &4537192647315853476
 PrefabInstance:
