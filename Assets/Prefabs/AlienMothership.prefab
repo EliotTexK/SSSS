@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7588799758270747750}
   - component: {fileID: 4373893463551925907}
   - component: {fileID: -6651214845023867290}
+  - component: {fileID: 492874621219679210}
   m_Layer: 0
   m_Name: AlienMothership
   m_TagString: Untagged
@@ -95,6 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  damageExplosion: {fileID: 4495980531986714252, guid: ad4214a7c993f3413b6fbb96ae4e71b8, type: 3}
   healthBarStyle:
     m_Name: 
     m_Normal:
@@ -221,6 +223,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lineRendererMaterial: {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
   radius: 0
+--- !u!114 &492874621219679210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6793487212834524260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c570afb4600723efbad89deeb1d39acf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionPrefab: {fileID: 5061671915386074885, guid: f43173e825dd1c000a085a6952e3aabb, type: 3}
+  size: 1
 --- !u!1001 &5595010653593968949
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ public class Destructible : MonoBehaviour
     public float health = maxHealth;
     private Collider2D myCollider;
     private NewtonianPhysics myPhysics;
+    public GameObject damageExplosion;
     public GUIStyle healthBarStyle;
     void Start()
     {
@@ -36,6 +37,8 @@ public class Destructible : MonoBehaviour
                 {
                     // lose health based on ratio of masses and the "damage multiplier"
                     health -= otherPhysics.mass * otherPhysics.damageMultiplier * Time.fixedDeltaTime;
+                    Vector3 randomV3 = new Vector3(Random.value * 2f - 1f, Random.value * 2f - 1f, Random.value * 2f - 1f);
+                    GameObject.Instantiate(damageExplosion, (transform.position + otherPhysics.transform.position)/2 + randomV3 * transform.localScale.magnitude/4, Quaternion.identity);
                     // too lazy to implement proper two-way collisions
                     var otherDest = collisions[0].gameObject.GetComponent<Destructible>();
                     if (otherDest) {
@@ -48,8 +51,10 @@ public class Destructible : MonoBehaviour
                 Destroy(this.gameObject,0.05f);
                 // add large explosion effect
             }
-            if (transform.position.magnitude > GameManager.Instance.maxDistance * 1.5f) {
+            if (transform.position.magnitude > GameManager.Instance.maxDistance) {
                 health -= Time.fixedDeltaTime;
+                Vector3 randomV3 = new Vector3(Random.value * 2f - 1f, Random.value * 2f - 1f, Random.value * 2f - 1f);
+                GameObject.Instantiate(damageExplosion, transform.position + randomV3 * transform.localScale.magnitude/3, Quaternion.identity);
             }
         }
     }
