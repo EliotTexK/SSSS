@@ -33,7 +33,7 @@ public class OrbitTarget : MonoBehaviour
                 Vector2 perpendicularNorm = Vector2.Perpendicular(targetDir).normalized;
                 Vector2 velCentrip = Vector2.Dot(myPhysics.velocity, perpendicularNorm) * perpendicularNorm;
                 Vector2 velTowards = Vector2.Dot(myPhysics.velocity, targetDir.normalized) * targetDir.normalized;
-                // add centripetal
+                // add forces
                 myPhysics.velocity += velCentrip * velTowards.magnitude * Time.fixedDeltaTime * adjustActual;
                 myPhysics.velocity -= velTowards * Time.fixedDeltaTime * adjustActual;
             }

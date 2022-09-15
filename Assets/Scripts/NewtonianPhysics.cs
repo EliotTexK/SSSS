@@ -7,7 +7,7 @@ public class NewtonianPhysics : MonoBehaviour
 {
     public float mass;
     public Vector2 velocity;
-    public static float gravConstant = 20f;
+    public static float gravConstant = 10f;
     // not used in OrbitTarget
     public float personalGravConstant = 0f;
     public float damageMultiplier = 1000f;

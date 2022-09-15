@@ -240,11 +240,13 @@ MonoBehaviour:
   planetPrefabs:
   - {fileID: 3873130395066242556, guid: b6e75f2846b009a279d2411b3ba36dac, type: 3}
   humanMothershipPrefab: {fileID: 4537192645525628176, guid: 146474ce75e37d80c8f50bc71eddcafb, type: 3}
+  alienMothershipPrefab: {fileID: 6793487212834524260, guid: 0edb59a7768753823b594312448e02d3, type: 3}
   maxDistance: 50
   lineRendererMaterial: {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
   minPlanetSpacing: 3
   maxPlanetSpacing: 5
   updatePhysics: 1
+  isHumanTurn: 0
   turnLength: 5
   turnTimer: 0
 --- !u!4 &1125652127
