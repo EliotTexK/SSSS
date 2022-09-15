@@ -199,14 +199,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1097496891}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -50}
+  m_LocalRotation: {x: -0.23151903, y: -0, z: -0, w: 0.9728304}
+  m_LocalPosition: {x: 0, y: -44, z: -58}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -26.773, y: 0, z: 0}
 --- !u!1 &1125652125
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,7 +240,8 @@ MonoBehaviour:
   planetPrefabs:
   - {fileID: 3873130395066242556, guid: b6e75f2846b009a279d2411b3ba36dac, type: 3}
   humanMothershipPrefab: {fileID: 4537192645525628176, guid: 146474ce75e37d80c8f50bc71eddcafb, type: 3}
-  maxDistance: 30
+  maxDistance: 50
+  lineRendererMaterial: {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
   minPlanetSpacing: 3
   maxPlanetSpacing: 5
   updatePhysics: 1

@@ -20,11 +20,12 @@ public class GameManager : MonoBehaviour
     public List<GameObject> planetPrefabs;
     // Max distance before out-of-bounds
     public GameObject humanMothershipPrefab;
-    public float maxDistance = 40f;
+    public float maxDistance = 50f;
     // Minimum and maximum for deciding how far to space planets
-
-    public float minPlanetSpacing = 3f;
-    public float maxPlanetSpacing = 5f;
+    private LineRenderer lineRenderer;
+    public Material lineRendererMaterial;
+    public float minPlanetSpacing = 6f;
+    public float maxPlanetSpacing = 11f;
     // Update this to false so that players can take aim
     public bool updatePhysics = true;
     public float turnLength = 5f;
@@ -33,8 +34,8 @@ public class GameManager : MonoBehaviour
     {
         // Add in the sun and some planets
         GameObject sun = Instantiate(sunPrefab);
-        for (float i = Random.Range(minPlanetSpacing, maxPlanetSpacing);
-             i < (maxDistance * 0.75f); i += Random.Range(minPlanetSpacing, maxPlanetSpacing))
+        for (float i = 2f * Random.Range(minPlanetSpacing, maxPlanetSpacing);
+             i < maxDistance * 0.85f; i += Random.Range(minPlanetSpacing, maxPlanetSpacing))
         {
             // give the planets random scale and position (within boundaries)
             GameObject planet = Instantiate(planetPrefabs[Random.Range(0, planetPrefabs.Count)]);
@@ -46,6 +47,25 @@ public class GameManager : MonoBehaviour
         float placement = Random.Range(maxDistance * 0.25f, maxDistance * 0.75f);
         GameObject hMotherShip = GameObject.Instantiate(humanMothershipPrefab, randV2 * placement, Quaternion.identity);
         hMotherShip.GetComponent<OrbitTarget>().target = sun.transform;
+        // Add radius
+        lineRenderer = gameObject.AddComponent<LineRenderer>();
+        lineRenderer.material = lineRendererMaterial;
+        lineRenderer.startColor = Color.blue;
+        lineRenderer.startWidth = 0.75f;
+        lineRenderer.positionCount = 100;
+        {
+            float theta_scale = 0.02f;  // Circle resolution
+            float theta = 0f;
+            for(int i = 0; i < 100; i++){          
+                theta += (2.0f * Mathf.PI * theta_scale);         
+                float x = maxDistance * Mathf.Cos(theta);
+                float y = maxDistance * Mathf.Sin(theta);          
+                x += gameObject.transform.position.x;
+                y += gameObject.transform.position.y;
+                var pos = new Vector3(x, y, 0);
+                lineRenderer.SetPosition(i, pos);
+            }
+        }
     }
 
     void OnGUI()
