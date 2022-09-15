@@ -44,7 +44,7 @@ public class OrbitTarget : MonoBehaviour
         }
     }
 
-    private void applyInitialForce() {
+    public void applyInitialForce() {
         Vector2 targetDir = (target.position - transform.position);
         float distance = targetDir.magnitude;
         Vector2 perpendicularNorm = Vector2.Perpendicular(targetDir).normalized;

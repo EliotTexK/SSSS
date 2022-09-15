@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(DrawCircle))]
 public class GameManager : MonoBehaviour
 {
     //singleton
@@ -23,7 +24,6 @@ public class GameManager : MonoBehaviour
     public GameObject alienMothershipPrefab;
     public float maxDistance = 50f;
     // Minimum and maximum for deciding how far to space planets
-    private LineRenderer lineRenderer;
     public Material lineRendererMaterial;
     public float minPlanetSpacing = 6f;
     public float maxPlanetSpacing = 11f;
@@ -61,25 +61,9 @@ public class GameManager : MonoBehaviour
             GameObject aMotherShip = GameObject.Instantiate(alienMothershipPrefab, -randV2 * placement, Quaternion.identity);
             aMotherShip.GetComponent<OrbitTarget>().target = sun.transform;
         }
-        // Add radius
-        lineRenderer = gameObject.AddComponent<LineRenderer>();
-        lineRenderer.material = lineRendererMaterial;
-        lineRenderer.startColor = Color.blue;
-        lineRenderer.startWidth = 0.75f;
-        lineRenderer.positionCount = 100;
-        {
-            float theta_scale = 0.02f;  // Circle resolution
-            float theta = 0f;
-            for(int i = 0; i < 100; i++){          
-                theta += (2.0f * Mathf.PI * theta_scale);         
-                float x = maxDistance * Mathf.Cos(theta);
-                float y = maxDistance * Mathf.Sin(theta);          
-                x += gameObject.transform.position.x;
-                y += gameObject.transform.position.y;
-                var pos = new Vector3(x, y, 0);
-                lineRenderer.SetPosition(i, pos);
-            }
-        }
+        // draw circle around game bounds
+        DrawCircle drawCircle = GetComponent<DrawCircle>();
+        drawCircle.radius = maxDistance;
     }
 
     void OnGUI()

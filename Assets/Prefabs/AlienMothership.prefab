@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 1252665879724616485}
   - component: {fileID: 7742106995594297157}
   - component: {fileID: 7588799758270747750}
-  - component: {fileID: 3805094927922686934}
   - component: {fileID: 4373893463551925907}
+  - component: {fileID: -6651214845023867290}
   m_Layer: 0
   m_Name: AlienMothership
   m_TagString: Untagged
@@ -77,7 +77,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1338f078d21b90813bd7d5b3307b15e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mass: 3
+  mass: 2
   velocity: {x: 0, y: 0}
   personalGravConstant: 0
   damageMultiplier: 0.1
@@ -192,20 +192,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 710355210728467592, guid: 5107367bed13ee2cba91de841eee3610, type: 3}
   firingRadius: 4
   bulletSpeed: 0.5
+  moveSpeed: 0.3
   isHumanShip: 0
---- !u!114 &3805094927922686934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6793487212834524260}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2b3634be1ec0ee7d8ab780123bfee24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controlIntensity: 100
 --- !u!114 &4373893463551925907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,6 +207,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toRotate: {fileID: 5345704548361291486}
+--- !u!114 &-6651214845023867290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6793487212834524260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a2444a8789ba3b328a795d8b5bc1aed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lineRendererMaterial: {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+  radius: 0
 --- !u!1001 &5595010653593968949
 PrefabInstance:
   m_ObjectHideFlags: 0
