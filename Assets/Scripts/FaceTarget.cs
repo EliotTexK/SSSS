@@ -12,7 +12,7 @@ public class FaceTarget : MonoBehaviour
     void Update()
     {
         if (GameManager.Instance.updatePhysics) {
-            transform.LookAt(toFace);
+            transform.LookAt(toFace, Vector3.forward);
         }
     }
 }

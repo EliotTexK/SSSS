@@ -13,6 +13,6 @@ public class FaceVelocity : MonoBehaviour
     }
     void FixedUpdate()
     {
-        toRotate.rotation = Quaternion.LookRotation(myPhysics.velocity.normalized);
+        toRotate.rotation = Quaternion.LookRotation(myPhysics.velocity.normalized, Vector3.forward);
     }
 }
