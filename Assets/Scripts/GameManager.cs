@@ -29,10 +29,11 @@ public class GameManager : MonoBehaviour
     public float maxPlanetSpacing = 11f;
     // Update this to false so that players can take aim
     public bool updatePhysics = true;
-    public bool isHumanTurn;
     public float turnLength = 5f;
     public float turnTimer = 0;
-    public List<GameObject> unitPrefabs;
+    public bool isHumanTurn;
+    public GameObject alienMothership, humanMothership;
+    public GameObject controlledUnit;
     void Start()
     {
         // randomly decide who goes first
@@ -47,20 +48,26 @@ public class GameManager : MonoBehaviour
             planet.transform.position = new Vector2(Random.value * 2f - 1f, Random.value * 2f - 1f).normalized * i;
             planet.transform.localScale += Vector3.one * Random.Range(-0.25f, 0.5f);
             planet.GetComponent<OrbitTarget>().target = sun.transform;
+            GameObject testExtraUnit = GameObject.Instantiate(alienMothershipPrefab, alienMothership.transform.position + new Vector3(2f,2f,0), Quaternion.identity);
+            testExtraUnit.GetComponent<OrbitTarget>().target = sun.transform;
+            alienMothership.GetComponent<ControlUnit>().setNextUnit(testExtraUnit);
         }
         // add the motherships
         Vector2 randV2 = new Vector2(Random.value * 2f - 1f, Random.value * 2f - 1f).normalized;
         if (humanMothershipPrefab)
         {
             float placement = Random.Range(maxDistance * 0.25f, maxDistance * 0.75f);
-            GameObject hMotherShip = GameObject.Instantiate(humanMothershipPrefab, randV2 * placement, Quaternion.identity);
-            hMotherShip.GetComponent<OrbitTarget>().target = sun.transform;
+            humanMothership = GameObject.Instantiate(humanMothershipPrefab, randV2 * placement, Quaternion.identity);
+            humanMothership.GetComponent<OrbitTarget>().target = sun.transform;
+            GameObject testExtraUnit = GameObject.Instantiate(humanMothershipPrefab, humanMothership.transform.position + new Vector3(2f,2f,0), Quaternion.identity);
+            testExtraUnit.GetComponent<OrbitTarget>().target = sun.transform;
+            humanMothership.GetComponent<ControlUnit>().setNextUnit(testExtraUnit);
         }
         if (alienMothershipPrefab)
         {
             float placement = Random.Range(maxDistance * 0.25f, maxDistance * 0.75f);
-            GameObject aMotherShip = GameObject.Instantiate(alienMothershipPrefab, -randV2 * placement, Quaternion.identity);
-            aMotherShip.GetComponent<OrbitTarget>().target = sun.transform;
+            alienMothership = GameObject.Instantiate(alienMothershipPrefab, -randV2 * placement, Quaternion.identity);
+            alienMothership.GetComponent<OrbitTarget>().target = sun.transform;
         }
         // draw circle around game bounds
         DrawCircle drawCircle = GetComponent<DrawCircle>();
@@ -81,9 +88,12 @@ public class GameManager : MonoBehaviour
         if (updatePhysics) {
             turnTimer -= Time.fixedDeltaTime;
             if (turnTimer <= 0) {
-                isHumanTurn = !isHumanTurn;
-                updatePhysics = false;
-                turnTimer = turnLength;
+                isHumanTurn = !isHumanTurn; // switch turns
+                updatePhysics = false;      // pause time for decision-making
+                turnTimer = turnLength;     // reset turn timer
+                // give control to the correct mothership unit
+                if (isHumanTurn) controlledUnit = humanMothership;
+                else controlledUnit = alienMothership;
             }
         }
     }

@@ -247,9 +247,10 @@ MonoBehaviour:
   minPlanetSpacing: 3
   maxPlanetSpacing: 5
   updatePhysics: 1
-  isHumanTurn: 0
   turnLength: 5
   turnTimer: 0
+  isHumanTurn: 0
+  controlledUnit: {fileID: 0}
 --- !u!4 &1125652127
 Transform:
   m_ObjectHideFlags: 0

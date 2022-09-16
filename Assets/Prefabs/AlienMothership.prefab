@@ -444,14 +444,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6793487212834524260}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abc48fc5f07a08ec9abbd9f6d48df499, type: 3}
+  m_Script: {fileID: 11500000, guid: efe374ac17a54bb5ebeaa64fde3920f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isHumanUnit: 0
   bulletPrefab: {fileID: 710355210728467592, guid: 5107367bed13ee2cba91de841eee3610, type: 3}
   firingRadius: 4
-  bulletSpeed: 0.75
+  bulletSpeed: 1
   moveSpeed: 0.2
-  isHumanShip: 0
 --- !u!114 &4373893463551925907
 MonoBehaviour:
   m_ObjectHideFlags: 0

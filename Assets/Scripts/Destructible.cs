@@ -53,10 +53,9 @@ public class Destructible : MonoBehaviour
             }
             if (health <= 0) {
                 Destroy(this.gameObject,0.05f);
-                // add large explosion effect
             }
             if (transform.position.magnitude > GameManager.Instance.maxDistance) {
-                health -= Time.fixedDeltaTime;
+                health -= Time.fixedDeltaTime * (transform.position.magnitude - GameManager.Instance.maxDistance);
                 Vector3 randomV3 = new Vector3(Random.value * 2f - 1f, Random.value * 2f - 1f, Random.value * 2f - 1f);
                 GameObject.Instantiate(damageExplosion, transform.position + randomV3 * transform.localScale.magnitude/3, Quaternion.identity);
             }

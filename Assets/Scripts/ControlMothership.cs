@@ -5,67 +5,46 @@ using UnityEngine;
 [RequireComponent(typeof(NewtonianPhysics))]
 [RequireComponent(typeof(OrbitTarget))]
 [RequireComponent(typeof(DrawCircle))]
-public class ControlShip : MonoBehaviour
+public class ControlMothership : ControlUnit
 {
     public GameObject bulletPrefab;
     public float firingRadius = 4f;
     public float bulletSpeed = 1f;
     public float moveSpeed = 0.3f;
-    public bool isHumanShip;
-    private DrawCircle myCircle;
     private NewtonianPhysics myPhysics;
     private Vector2 moveTo;
-    // is the ship actively moving?
     private bool isMoving = false;
-    private List<GameObject> myUnits;
 
     void Start()
     {
-        myCircle = GetComponent<DrawCircle>();
         myPhysics = GetComponent<NewtonianPhysics>();
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        if (!GameManager.Instance.updatePhysics && isHumanShip == GameManager.Instance.isHumanTurn)
-        {
-            isMoving = false;
-            GetComponent<OrbitTarget>().enabled = true;
-            myCircle.radius = firingRadius;
-            if (Input.GetMouseButtonDown(0))
+    }   
+    protected override void reactToMouseEvent(int input) {
+        switch (input) {
+            case 0:
             {
-                Vector2 mousePos = Input.mousePosition;
-                Plane xy = new Plane(Vector3.zero, Vector3.up, Vector3.right);
-                Ray ray = Camera.main.ScreenPointToRay(mousePos);
-                float distance;
-                xy.Raycast(ray, out distance);
-                Vector2 coords2d = ray.GetPoint(distance);
+                Vector2 coords2d = getCoordsFromMouse();
                 Vector2 aimDir = (coords2d - (Vector2)transform.position).normalized;
                 GameObject myBullet = GameObject.Instantiate(bulletPrefab,
                     (Vector2)transform.position + firingRadius * aimDir, Quaternion.identity);
                 myBullet.GetComponent<NewtonianPhysics>().velocity = aimDir * bulletSpeed;
-                GameManager.Instance.updatePhysics = true;
-                myCircle.radius = 0f;
-                return;
+                break;
             }
-            if (Input.GetMouseButtonDown(1))
+            case 1:
             {
-                Vector2 mousePos = Input.mousePosition;
-                Plane xy = new Plane(Vector3.zero, Vector3.up, Vector3.right);
-                Ray ray = Camera.main.ScreenPointToRay(mousePos);
-                float distance;
-                xy.Raycast(ray, out distance);
-                Vector2 coords2d = ray.GetPoint(distance);
+                Vector2 coords2d = getCoordsFromMouse();
                 moveTo = coords2d;
                 isMoving = true;
                 GetComponent<OrbitTarget>().enabled = false;
-                GameManager.Instance.updatePhysics = true;
-                myCircle.radius = 0f;
-                return;
+                break;
+            }
+            default:
+            {
+                Debug.Log("what?!?");
+                break;
             }
         }
     }
-
     void FixedUpdate()
     {
         if (GameManager.Instance.updatePhysics)
