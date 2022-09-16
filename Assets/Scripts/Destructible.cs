@@ -17,6 +17,10 @@ public class Destructible : MonoBehaviour
     public GUIStyle healthBarStyle;
 
     [SerializeField]
+    private Canvas HealthUI;
+    //Create Toggle for this if planet
+
+    [SerializeField]
     private RectTransform HealthBar;
     [SerializeField]
     private Image HealthBarColor;
