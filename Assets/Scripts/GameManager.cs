@@ -48,9 +48,6 @@ public class GameManager : MonoBehaviour
             planet.transform.position = new Vector2(Random.value * 2f - 1f, Random.value * 2f - 1f).normalized * i;
             planet.transform.localScale += Vector3.one * Random.Range(-0.25f, 0.5f);
             planet.GetComponent<OrbitTarget>().target = sun.transform;
-            GameObject testExtraUnit = GameObject.Instantiate(alienMothershipPrefab, alienMothership.transform.position + new Vector3(2f,2f,0), Quaternion.identity);
-            testExtraUnit.GetComponent<OrbitTarget>().target = sun.transform;
-            alienMothership.GetComponent<ControlUnit>().setNextUnit(testExtraUnit);
         }
         // add the motherships
         Vector2 randV2 = new Vector2(Random.value * 2f - 1f, Random.value * 2f - 1f).normalized;
@@ -68,6 +65,9 @@ public class GameManager : MonoBehaviour
             float placement = Random.Range(maxDistance * 0.25f, maxDistance * 0.75f);
             alienMothership = GameObject.Instantiate(alienMothershipPrefab, -randV2 * placement, Quaternion.identity);
             alienMothership.GetComponent<OrbitTarget>().target = sun.transform;
+            GameObject testExtraUnit = GameObject.Instantiate(alienMothershipPrefab, alienMothership.transform.position + new Vector3(2f,2f,0), Quaternion.identity);
+            testExtraUnit.GetComponent<OrbitTarget>().target = sun.transform;
+            alienMothership.GetComponent<ControlUnit>().setNextUnit(testExtraUnit);
         }
         // draw circle around game bounds
         DrawCircle drawCircle = GetComponent<DrawCircle>();
