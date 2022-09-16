@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 // collide with other physics objects, lose health, explode!
 [RequireComponent(typeof(NewtonianPhysics))]
@@ -17,6 +18,8 @@ public class Destructible : MonoBehaviour
 
     [SerializeField]
     private RectTransform HealthBar;
+    [SerializeField]
+    private Image HealthBarColor;
 
     void Start()
     {
@@ -72,6 +75,17 @@ public class Destructible : MonoBehaviour
 
     void UpdateHealthBar(float health)
     {
-        HealthBar.localScale = new Vector3(health / maxHealth, 1f, 1f);
+        HealthBar.localScale = new Vector3(health / maxHealth, 0.63f, 1f);
+
+        if (health <= 50)
+        {
+            HealthBarColor.color = Color.yellow;
+        }
+
+        if (health <= 25)
+        {
+            HealthBarColor.color = Color.red;
+        }
+        
     }
 }

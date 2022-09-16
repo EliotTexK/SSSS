@@ -267,6 +267,7 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   HealthBar: {fileID: 5078990114163691441}
+  HealthBarColor: {fileID: 1243156211482728802}
 --- !u!114 &-8376284882446445007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,7 +355,7 @@ RectTransform:
   m_GameObject: {fileID: 5308781329165369747}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.05, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1208288517466575860}
@@ -430,7 +431,7 @@ RectTransform:
   m_GameObject: {fileID: 6116107366215148093}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.93, y: 0.63, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1208288517466575860}
