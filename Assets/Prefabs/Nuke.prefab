@@ -67,7 +67,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mass: 1
   velocity: {x: 0.031643465, y: 0.2479893}
-  personalGravConstant: 7
+  personalGravConstant: 10
   damageMultiplier: 10
   detectionRange: 1000
 --- !u!114 &8397421535082709902

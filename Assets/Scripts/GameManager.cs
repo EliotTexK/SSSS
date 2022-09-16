@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     public bool isHumanTurn;
     public float turnLength = 5f;
     public float turnTimer = 0;
+    public List<GameObject> unitPrefabs;
     void Start()
     {
         // randomly decide who goes first

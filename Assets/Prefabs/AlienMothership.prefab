@@ -333,7 +333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1338f078d21b90813bd7d5b3307b15e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mass: 2
+  mass: 4
   velocity: {x: 0, y: 0}
   personalGravConstant: 0
   damageMultiplier: 0.1
@@ -449,8 +449,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 710355210728467592, guid: 5107367bed13ee2cba91de841eee3610, type: 3}
   firingRadius: 4
-  bulletSpeed: 0.5
-  moveSpeed: 0.3
+  bulletSpeed: 0.75
+  moveSpeed: 0.2
   isHumanShip: 0
 --- !u!114 &4373893463551925907
 MonoBehaviour:

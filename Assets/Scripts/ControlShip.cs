@@ -17,6 +17,7 @@ public class ControlShip : MonoBehaviour
     private Vector2 moveTo;
     // is the ship actively moving?
     private bool isMoving = false;
+    private List<GameObject> myUnits;
 
     void Start()
     {
@@ -30,7 +31,6 @@ public class ControlShip : MonoBehaviour
         {
             isMoving = false;
             GetComponent<OrbitTarget>().enabled = true;
-            GetComponent<OrbitTarget>().applyInitialForce();
             myCircle.radius = firingRadius;
             if (Input.GetMouseButtonDown(0))
             {

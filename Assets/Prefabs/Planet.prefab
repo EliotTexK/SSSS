@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1338f078d21b90813bd7d5b3307b15e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mass: 2
+  mass: 3
   velocity: {x: 0, y: 0}
   personalGravConstant: 0
   damageMultiplier: 1
@@ -279,6 +279,7 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+  HealthBar: {fileID: 0}
 --- !u!114 &3442175322745741010
 MonoBehaviour:
   m_ObjectHideFlags: 0
