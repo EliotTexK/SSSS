@@ -60,6 +60,8 @@ public class Destructible : MonoBehaviour
                 Vector3 randomV3 = new Vector3(Random.value * 2f - 1f, Random.value * 2f - 1f, Random.value * 2f - 1f);
                 GameObject.Instantiate(damageExplosion, transform.position + randomV3 * transform.localScale.magnitude/3, Quaternion.identity);
             }
+
+            UpdateHealthBar(health);
         }
     }
     void OnGUI()
@@ -71,7 +73,6 @@ public class Destructible : MonoBehaviour
 
     void UpdateHealthBar(float health)
     {
-        //Why doesn't this work D: 
         HealthBar.localScale = new Vector3(health / maxHealth, 1f, 1f);
     }
 }
