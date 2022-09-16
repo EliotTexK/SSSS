@@ -14,6 +14,10 @@ public class Destructible : MonoBehaviour
     private NewtonianPhysics myPhysics;
     public GameObject damageExplosion;
     public GUIStyle healthBarStyle;
+
+    [SerializeField]
+    private RectTransform HealthBar;
+
     void Start()
     {
         myCollider = GetComponent<Collider2D>();
@@ -63,5 +67,11 @@ public class Destructible : MonoBehaviour
         Vector2 targetPos;
         targetPos = Camera.main.WorldToScreenPoint(transform.position * new Vector2(1f, -1f));
         //GUI.Box(new Rect(targetPos.x - 32, targetPos.y - 32, 64, 64), (Mathf.Ceil(health)).ToString());
+    }
+
+    void UpdateHealthBar(float health)
+    {
+        //Why doesn't this work D: 
+        HealthBar.localScale = new Vector3(health / maxHealth, 1f, 1f);
     }
 }
