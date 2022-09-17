@@ -52,15 +52,21 @@ public class ControlEnergyCollector : ControlUnit
                     GetComponent<OrbitTarget>().applyInitialForce();
                 }
             }
-        }  else {
             if (isHumanUnit) {
                 GameManager.Instance.humanEnergy += Time.fixedDeltaTime * collectionEfficiency;
             } else {
                 GameManager.Instance.alienEnergy += Time.fixedDeltaTime * collectionEfficiency;
             }
-        }
+        }  
     }
     void OnGUI() {
         // code for drawing a symbol at "isMoving" goes here
+    }
+
+    public override void onPortal()
+    {
+        isMoving = false;
+        GetComponent<OrbitTarget>().enabled = true;
+        GetComponent<OrbitTarget>().applyInitialForce();
     }
 }

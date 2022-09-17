@@ -56,6 +56,7 @@ public abstract class ControlUnit : MonoBehaviour
         xy.Raycast(ray, out distance);
         return ray.GetPoint(distance);
     }
+    public abstract void onPortal();
     protected abstract void reactToMouseEvent(int input);
     // recursively traverse the linked list, adding a unit to the end
     public void setNextUnit(GameObject givenNextUnit)

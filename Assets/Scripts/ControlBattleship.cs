@@ -86,4 +86,11 @@ public class ControlBattleship : ControlUnit
     void OnGUI() {
         // code for drawing a symbol at "isMoving" goes here
     }
+
+    public override void onPortal()
+    {
+        isMoving = false;
+        GetComponent<OrbitTarget>().enabled = true;
+        GetComponent<OrbitTarget>().applyInitialForce();
+    }
 }
