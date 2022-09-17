@@ -147,7 +147,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3873130394221389238}
-  - {fileID: 237575053971088686}
+  - {fileID: 3969363862112927855}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -279,11 +279,11 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
-  HealthUI: {fileID: 8203150194625400677}
+  HealthUI: {fileID: 325292110900185098}
   canHideHealth: 1
   hideHealthBarTime: 1
-  HealthBar: {fileID: 6193733549221558635}
-  HealthBarColor: {fileID: 200461574430273464}
+  HealthBar: {fileID: 1258403385391526941}
+  HealthBarColor: {fileID: 8686730817241476872}
 --- !u!114 &3442175322745741010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,6 +305,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3873130395066242559}
     m_Modifications:
+    - target: {fileID: 3641757540616504802, guid: 24b4d293b2aa1710aac2a01b26d0fa65, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5055432925013971932, guid: 24b4d293b2aa1710aac2a01b26d0fa65, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -393,11 +397,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealthBarCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8246807059282458269, guid: 24b4d293b2aa1710aac2a01b26d0fa65, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246807059282458269, guid: 24b4d293b2aa1710aac2a01b26d0fa65, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.792
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24b4d293b2aa1710aac2a01b26d0fa65, type: 3}
---- !u!114 &200461574430273464 stripped
+--- !u!223 &325292110900185098 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 4748803119201402616, guid: 24b4d293b2aa1710aac2a01b26d0fa65, type: 3}
+  m_PrefabInstance: {fileID: 5000271249016190706}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &1258403385391526941 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6057964936542044911, guid: 24b4d293b2aa1710aac2a01b26d0fa65, type: 3}
+  m_PrefabInstance: {fileID: 5000271249016190706}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &3969363862112927855 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8246807059282458269, guid: 24b4d293b2aa1710aac2a01b26d0fa65, type: 3}
+  m_PrefabInstance: {fileID: 5000271249016190706}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8686730817241476872 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5164685976760310090, guid: 24b4d293b2aa1710aac2a01b26d0fa65, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4461377909342902778, guid: 24b4d293b2aa1710aac2a01b26d0fa65, type: 3}
   m_PrefabInstance: {fileID: 5000271249016190706}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -406,18 +433,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &237575053971088686 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 5055432925013971932, guid: 24b4d293b2aa1710aac2a01b26d0fa65, type: 3}
-  m_PrefabInstance: {fileID: 5000271249016190706}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &6193733549221558635 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1193462618844581785, guid: 24b4d293b2aa1710aac2a01b26d0fa65, type: 3}
-  m_PrefabInstance: {fileID: 5000271249016190706}
-  m_PrefabAsset: {fileID: 0}
---- !u!223 &8203150194625400677 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 3797653335992416663, guid: 24b4d293b2aa1710aac2a01b26d0fa65, type: 3}
-  m_PrefabInstance: {fileID: 5000271249016190706}
-  m_PrefabAsset: {fileID: 0}

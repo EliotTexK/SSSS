@@ -61,26 +61,26 @@ public class ControlBattleship : ControlUnit
                     GetComponent<OrbitTarget>().applyInitialForce();
                 }
             }
-        }
-        if (firingTimer <= 0) {
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position,detectionRange);
-            if (firingTimer <= 0f) {
-                foreach (Collider2D collider in colliders) {
-                    if (collider && collider != myCollider && collider.tag != "Bullet") {
-                        ControlUnit other = collider.gameObject.GetComponent<ControlUnit>();
-                        if (other && other.isHumanUnit != this.isHumanUnit) {
-                            Vector2 aimDir = ((Vector2)other.transform.position - (Vector2)transform.position).normalized;
-                            GameObject myBullet = GameObject.Instantiate(bulletPrefab,
-                                (Vector2)transform.position + firingRadius * aimDir, Quaternion.identity);
-                            myBullet.GetComponent<NewtonianPhysics>().velocity = aimDir * bulletSpeed;
-                            break;  // only fire at one target!
+            if (firingTimer <= 0) {
+                Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position,detectionRange);
+                if (firingTimer <= 0f) {
+                    foreach (Collider2D collider in colliders) {
+                        if (collider && collider != myCollider && collider.tag != "Bullet") {
+                            ControlUnit other = collider.gameObject.GetComponent<ControlUnit>();
+                            if (other && other.isHumanUnit != this.isHumanUnit) {
+                                Vector2 aimDir = ((Vector2)other.transform.position - (Vector2)transform.position).normalized;
+                                GameObject myBullet = GameObject.Instantiate(bulletPrefab,
+                                    (Vector2)transform.position + firingRadius * aimDir, Quaternion.identity);
+                                myBullet.GetComponent<NewtonianPhysics>().velocity = aimDir * bulletSpeed;
+                                break;  // only fire at one target!
+                            }
                         }
                     }
+                    firingTimer = firingTime;
                 }
-                firingTimer = firingTime;
             }
+            firingTimer-=Time.fixedDeltaTime;
         }
-        firingTimer-=Time.fixedDeltaTime;
     }
 
     void OnGUI() {
