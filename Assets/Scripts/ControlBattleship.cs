@@ -5,12 +5,17 @@ using UnityEngine;
 [RequireComponent(typeof(NewtonianPhysics))]
 [RequireComponent(typeof(OrbitTarget))]
 [RequireComponent(typeof(DrawCircle))]
-public class ControlMothership : ControlUnit
+[RequireComponent(typeof(Collider2D))]
+public class ControlBattleship : ControlUnit
 {
     public GameObject bulletPrefab;
+    private Collider2D myCollider;
     public float firingRadius = 4f;
     public float bulletSpeed = 1f;
     public float moveSpeed = 0.3f;
+    public float detectionRange = 30f;
+    public float firingTime = 2f;
+    private float firingTimer;
     private NewtonianPhysics myPhysics;
     private Vector2 moveTo;
     private bool isMoving = false;
@@ -18,18 +23,12 @@ public class ControlMothership : ControlUnit
     void Start()
     {
         myPhysics = GetComponent<NewtonianPhysics>();
+        myCollider = GetComponent<Collider2D>();
+        firingTimer = firingTime;
     }   
     protected override void reactToMouseEvent(int input) {
         switch (input) {
             case 0:
-            {
-                Vector2 coords2d = getCoordsFromMouse();
-                Vector2 aimDir = (coords2d - (Vector2)transform.position).normalized;
-                GameObject myBullet = GameObject.Instantiate(bulletPrefab,
-                    (Vector2)transform.position + firingRadius * aimDir, Quaternion.identity);
-                myBullet.GetComponent<NewtonianPhysics>().velocity = aimDir * bulletSpeed;
-                break;
-            }
             case 1:
             {
                 Vector2 coords2d = getCoordsFromMouse();
@@ -59,14 +58,27 @@ public class ControlMothership : ControlUnit
                     GetComponent<OrbitTarget>().enabled = true;
                     GetComponent<OrbitTarget>().applyInitialForce();
                 }
-            } else {
-                if (isHumanUnit) {
-                    GameManager.Instance.humanEnergy += Time.fixedDeltaTime;
-                } else {
-                    GameManager.Instance.alienEnergy += Time.fixedDeltaTime;
-                }
             }
         }
+        if (firingTimer <= 0) {
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position,detectionRange);
+            if (firingTimer <= 0f) {
+                foreach (Collider2D collider in colliders) {
+                    if (collider && collider != myCollider && collider.tag != "Bullet") {
+                        ControlUnit other = collider.gameObject.GetComponent<ControlUnit>();
+                        if (other && other.isHumanUnit != this.isHumanUnit) {
+                            Vector2 aimDir = ((Vector2)other.transform.position - (Vector2)transform.position).normalized;
+                            GameObject myBullet = GameObject.Instantiate(bulletPrefab,
+                                (Vector2)transform.position + firingRadius * aimDir, Quaternion.identity);
+                            myBullet.GetComponent<NewtonianPhysics>().velocity = aimDir * bulletSpeed;
+                            break;  // only fire at one target!
+                        }
+                    }
+                }
+                firingTimer = firingTime;
+            }
+        }
+        firingTimer-=Time.fixedDeltaTime;
     }
 
     void OnGUI() {

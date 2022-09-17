@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     public float turnTimer = 0;
     public bool isHumanTurn;
     public GameObject alienMothership, humanMothership;
+    public float alienEnergy, humanEnergy;
     public GameObject controlledUnit;
     void Start()
     {
@@ -59,6 +60,9 @@ public class GameManager : MonoBehaviour
             GameObject testExtraUnit = GameObject.Instantiate(humanMothershipPrefab, humanMothership.transform.position + new Vector3(2f,2f,0), Quaternion.identity);
             testExtraUnit.GetComponent<OrbitTarget>().target = sun.transform;
             humanMothership.GetComponent<ControlUnit>().setNextUnit(testExtraUnit);
+            GameObject testExtraUnit2 = GameObject.Instantiate(humanMothershipPrefab, humanMothership.transform.position + new Vector3(-2f,-2f,0), Quaternion.identity);
+            testExtraUnit2.GetComponent<OrbitTarget>().target = sun.transform;
+            humanMothership.GetComponent<ControlUnit>().setNextUnit(testExtraUnit2);
         }
         if (alienMothershipPrefab)
         {
@@ -72,13 +76,6 @@ public class GameManager : MonoBehaviour
         // draw circle around game bounds
         DrawCircle drawCircle = GetComponent<DrawCircle>();
         drawCircle.radius = maxDistance;
-    }
-
-    void OnGUI()
-    {
-
-        //GUI.Box(new Rect(0, 0, 100, 50), player1.name);
-        //GUI.Box(new Rect(Screen.width - 100, 0, 100, 50), player2.name);
     }
 
     // Update is called once per frame
