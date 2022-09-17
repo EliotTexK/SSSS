@@ -68,7 +68,7 @@ MonoBehaviour:
   mass: 1
   velocity: {x: 0.031643465, y: 0.2479893}
   personalGravConstant: 10
-  damageMultiplier: 10
+  damageMultiplier: 20
   detectionRange: 1000
 --- !u!114 &8397421535082709902
 MonoBehaviour:
@@ -82,7 +82,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d489ac1b9df1b76b68dd54fc11477502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockback: 0.5
+  knockback: 0.3
 --- !u!114 &4978994069416780078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 5061671915386074885, guid: f43173e825dd1c000a085a6952e3aabb, type: 3}
-  size: 0.1
+  size: 0.2
 --- !u!1 &4003030842232588181
 GameObject:
   m_ObjectHideFlags: 0

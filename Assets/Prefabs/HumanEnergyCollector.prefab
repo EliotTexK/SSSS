@@ -119,6 +119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isHumanUnit: 1
   moveSpeed: 0.3
+  collectionEfficiency: 2
 --- !u!114 &8520999041809947423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,10 +132,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1338f078d21b90813bd7d5b3307b15e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mass: 0
+  mass: 3
   velocity: {x: 0, y: 0}
   personalGravConstant: 0
-  damageMultiplier: 1000
+  damageMultiplier: 0.2
   detectionRange: 30
 --- !u!114 &1464979882032135776
 MonoBehaviour:
@@ -163,7 +164,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 907206fdc4d0b4ff0bb91746d8ba8c29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
   damageExplosion: {fileID: 4495980531986714252, guid: ad4214a7c993f3413b6fbb96ae4e71b8, type: 3}
   healthBarStyle:
     m_Name: 
@@ -233,6 +233,8 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   HealthUI: {fileID: 0}
+  canHideHealth: 0
+  hideHealthBarTime: 0
   HealthBar: {fileID: 0}
   HealthBarColor: {fileID: 0}
 --- !u!114 &-3634374662114763732
@@ -248,4 +250,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 5061671915386074885, guid: f43173e825dd1c000a085a6952e3aabb, type: 3}
-  size: 0.75
+  size: 1

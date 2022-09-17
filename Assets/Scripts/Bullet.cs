@@ -34,7 +34,7 @@ public class Bullet : MonoBehaviour
                 }
                 Destructible otherDest = collisions[0].GetComponent<Destructible>();
                 if (otherDest) {
-                    otherDest.health -= myPhysics.mass * myPhysics.damageMultiplier;
+                    otherDest.subtractHealth(myPhysics.mass * myPhysics.damageMultiplier);
                 }
                 myPhysics.velocity = Vector2.zero;
                 Destroy(this.gameObject);

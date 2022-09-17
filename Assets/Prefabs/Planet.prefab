@@ -313,7 +313,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 907206fdc4d0b4ff0bb91746d8ba8c29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
   damageExplosion: {fileID: 4495980531986714252, guid: ad4214a7c993f3413b6fbb96ae4e71b8, type: 3}
   healthBarStyle:
     m_Name: 
@@ -383,6 +382,8 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   HealthUI: {fileID: 7131192926826438103}
+  canHideHealth: 1
+  hideHealthBarTime: 1
   HealthBar: {fileID: 1248259732801682154}
   HealthBarColor: {fileID: 6903739027389412648}
 --- !u!114 &3442175322745741010
@@ -398,7 +399,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 5061671915386074885, guid: f43173e825dd1c000a085a6952e3aabb, type: 3}
-  size: 0.2
+  size: 0.5
 --- !u!1 &8361903431463100135
 GameObject:
   m_ObjectHideFlags: 0

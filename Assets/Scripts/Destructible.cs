@@ -10,7 +10,7 @@ public class Destructible : MonoBehaviour
 {
     // health is a percentage
     public const float maxHealth = 100;
-    public float health = maxHealth;
+    private float health = maxHealth;
     private Collider2D myCollider;
     private NewtonianPhysics myPhysics;
     public GameObject damageExplosion;
@@ -18,7 +18,9 @@ public class Destructible : MonoBehaviour
 
     [SerializeField]
     private Canvas HealthUI;
-    //Create Toggle for this if planet
+    public bool canHideHealth = false;
+    private bool toggleDisplayHealth = true;
+    public float hideHealthBarTime = 1f;     // time it takes for the healthbar to disappear
 
     [SerializeField]
     private RectTransform HealthBar;
@@ -29,6 +31,10 @@ public class Destructible : MonoBehaviour
     {
         myCollider = GetComponent<Collider2D>();
         myPhysics = GetComponent<NewtonianPhysics>();
+        if (canHideHealth) {
+            HealthUI.gameObject.SetActive(false);
+            toggleDisplayHealth = false;
+        }
     }
 
     void FixedUpdate()
@@ -47,7 +53,7 @@ public class Destructible : MonoBehaviour
                 if (otherPhysics)
                 {
                     // lose health based on ratio of masses and the "damage multiplier"
-                    health -= otherPhysics.mass * otherPhysics.damageMultiplier * Time.fixedDeltaTime;
+                    subtractHealth(otherPhysics.mass * otherPhysics.damageMultiplier * Time.fixedDeltaTime);
                     Vector3 randomV3 = new Vector3(Random.value * 2f - 1f, Random.value * 2f - 1f, Random.value * 2f - 1f);
                     GameObject.Instantiate(damageExplosion, (transform.position + otherPhysics.transform.position)/2 + randomV3 * transform.localScale.magnitude/4, Quaternion.identity);
                     // too lazy to implement proper two-way collisions
@@ -62,7 +68,7 @@ public class Destructible : MonoBehaviour
                 Destroy(this.gameObject,0.05f);
             }
             if (transform.position.magnitude > GameManager.Instance.maxDistance) {
-                health -= Time.fixedDeltaTime * (transform.position.magnitude - GameManager.Instance.maxDistance);
+                subtractHealth(Time.fixedDeltaTime * (transform.position.magnitude - GameManager.Instance.maxDistance));
                 Vector3 randomV3 = new Vector3(Random.value * 2f - 1f, Random.value * 2f - 1f, Random.value * 2f - 1f);
                 GameObject.Instantiate(damageExplosion, transform.position + randomV3 * transform.localScale.magnitude/3, Quaternion.identity);
             }
@@ -79,17 +85,31 @@ public class Destructible : MonoBehaviour
 
     void UpdateHealthBar(float health)
     {
-        HealthBar.localScale = new Vector3(health / maxHealth, 0.63f, 1f);
+        if (toggleDisplayHealth) {
+            HealthBar.localScale = new Vector3(health / maxHealth, 0.63f, 1f);
 
-        if (health <= 50)
-        {
-            HealthBarColor.color = Color.yellow;
-        }
+            if (health <= 50)
+            {
+                HealthBarColor.color = Color.yellow;
+            }
 
-        if (health <= 25)
-        {
-            HealthBarColor.color = Color.red;
+            if (health <= 25)
+            {
+                HealthBarColor.color = Color.red;
+            }
         }
-        
+    }
+    public void subtractHealth(float amount) {
+        health -= amount;
+        if (canHideHealth) {
+            HealthUI.gameObject.SetActive(true);
+            toggleDisplayHealth = true;
+            CancelInvoke();
+            Invoke("hideHealthBar", hideHealthBarTime);
+        }
+    }
+    private void hideHealthBar() {
+        HealthUI.gameObject.SetActive(false);
+        toggleDisplayHealth = false;
     }
 }

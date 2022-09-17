@@ -36,6 +36,7 @@ public class OrbitTarget : MonoBehaviour
                 // add forces
                 myPhysics.velocity += velCentrip * velTowards.magnitude * Time.fixedDeltaTime * adjustActual;
                 myPhysics.velocity -= velTowards * Time.fixedDeltaTime * adjustActual;
+                transform.Translate(targetDir * Time.fixedDeltaTime * distance * distance * 0.000005f);
             }
             // adjust orbit more during the first few seconds of gameplay
             if (adjustActual > adjustOrbitIntensity/4) {
