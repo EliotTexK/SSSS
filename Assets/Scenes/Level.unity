@@ -240,7 +240,7 @@ MonoBehaviour:
   sunPrefab: {fileID: 9202140721813140466, guid: 21cf378e77bb5331b8210a0b49efcfdc, type: 3}
   planetPrefabs:
   - {fileID: 3873130395066242556, guid: b6e75f2846b009a279d2411b3ba36dac, type: 3}
-  humanMothershipPrefab: {fileID: 610394898941875903, guid: f12d0c69fea329855943fc4878b7c037, type: 3}
+  humanMothershipPrefab: {fileID: 1321682381468827357, guid: ea871c3dfd3758f1391676354ecd371d, type: 3}
   alienMothershipPrefab: {fileID: 6793487212834524260, guid: 0edb59a7768753823b594312448e02d3, type: 3}
   maxDistance: 50
   lineRendererMaterial: {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
@@ -252,6 +252,8 @@ MonoBehaviour:
   isHumanTurn: 0
   alienMothership: {fileID: 0}
   humanMothership: {fileID: 0}
+  alienEnergy: 0
+  humanEnergy: 0
   controlledUnit: {fileID: 0}
 --- !u!4 &1125652127
 Transform:

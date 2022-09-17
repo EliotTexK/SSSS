@@ -4,7 +4,6 @@ using UnityEngine;
 
 [RequireComponent(typeof(NewtonianPhysics))]
 [RequireComponent(typeof(OrbitTarget))]
-[RequireComponent(typeof(DrawCircle))]
 [RequireComponent(typeof(Collider2D))]
 public class ControlBattleship : ControlUnit
 {
@@ -29,6 +28,9 @@ public class ControlBattleship : ControlUnit
     protected override void reactToMouseEvent(int input) {
         switch (input) {
             case 0:
+            {
+                break;  // do nothing
+            }
             case 1:
             {
                 Vector2 coords2d = getCoordsFromMouse();
