@@ -281,7 +281,7 @@ MonoBehaviour:
     m_StretchHeight: 0
   HealthUI: {fileID: 325292110900185098}
   canHideHealth: 1
-  hideHealthBarTime: 1
+  hideHealthBarTime: 2
   HealthBar: {fileID: 1258403385391526941}
   HealthBarColor: {fileID: 8686730817241476872}
 --- !u!114 &3442175322745741010

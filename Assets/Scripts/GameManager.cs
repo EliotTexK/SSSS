@@ -20,8 +20,7 @@ public class GameManager : MonoBehaviour
     // List of different planets to add (randomly)
     public List<GameObject> planetPrefabs;
     // Max distance before out-of-bounds
-    public GameObject humanMothershipPrefab;
-    public GameObject alienMothershipPrefab;
+    public GameObject humanMothershipPrefab, alienMothershipPrefab, nukePrefab;
     public float maxDistance = 50f;
     // Minimum and maximum for deciding how far to space planets
     public Material lineRendererMaterial;
@@ -57,8 +56,6 @@ public class GameManager : MonoBehaviour
             float placement = Random.Range(maxDistance * 0.25f, maxDistance * 0.75f);
             humanMothership = GameObject.Instantiate(humanMothershipPrefab, randV2 * placement, Quaternion.identity);
             humanMothership.GetComponent<OrbitTarget>().target = sun.transform;
-            humanMothership.GetComponent<ControlMothership>().addUnit(0, humanMothership.transform.position + new Vector3(2f,2f,0f));
-            humanMothership.GetComponent<ControlMothership>().addUnit(1, humanMothership.transform.position + new Vector3(-2f,-2f,0f));
         }
         if (alienMothershipPrefab)
         {
@@ -86,5 +83,26 @@ public class GameManager : MonoBehaviour
                 else controlledUnit = alienMothership;
             }
         }
+    }
+    public void summonUnit(int type, Vector2 prospectiveCoords) {
+        ControlMothership motherShip;
+        if (GameManager.Instance.isHumanTurn) {
+            motherShip = humanMothership.GetComponent<ControlMothership>();
+        } else {
+            motherShip = alienMothership.GetComponent<ControlMothership>();
+        }
+        if (((Vector2) motherShip.transform.position - prospectiveCoords).magnitude < motherShip.summoningRadius) {
+            motherShip.addUnit(type, prospectiveCoords);
+        }
+    }
+
+    public void upgradeWeapon() {
+        ControlMothership motherShip;
+        if (GameManager.Instance.isHumanTurn) {
+            motherShip = humanMothership.GetComponent<ControlMothership>();
+        } else {
+            motherShip = alienMothership.GetComponent<ControlMothership>();
+        }
+        motherShip.bulletPrefab = nukePrefab;
     }
 }

@@ -121,7 +121,7 @@ MonoBehaviour:
   mass: 3
   velocity: {x: 0, y: 0}
   personalGravConstant: 0
-  damageMultiplier: 1000
+  damageMultiplier: 1
   detectionRange: 30
 --- !u!114 &5987235578143809345
 MonoBehaviour:

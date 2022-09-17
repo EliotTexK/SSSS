@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 8201711293074506321}
   - component: {fileID: -8376284882446445007}
   - component: {fileID: 711811871278415122}
-  - component: {fileID: 8432789311552035587}
   - component: {fileID: -3917543891127874133}
+  - component: {fileID: 8432789311552035587}
   m_Layer: 0
   m_Name: HumanMothership
   m_TagString: Untagged
@@ -197,28 +197,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isHumanUnit: 1
   controlArrow: {fileID: 2800000, guid: 2a1a7098f98bd9d53b8e4deef1915009, type: 3}
-  bulletPrefab: {fileID: 710355210728467592, guid: 5107367bed13ee2cba91de841eee3610, type: 3}
+  bulletPrefab: {fileID: 710355210728467592, guid: be7edda08ebde26febf60b3bee6d57ab, type: 3}
   firingRadius: 4.5
-  summoningRadius: 0
+  summoningRadius: 10
   bulletSpeed: 1
   moveSpeed: 0.2
   unitPrefabs:
   - {fileID: 610394898941875903, guid: f12d0c69fea329855943fc4878b7c037, type: 3}
   - {fileID: 1321682381468827357, guid: ea871c3dfd3758f1391676354ecd371d, type: 3}
---- !u!114 &8432789311552035587
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4537192645525628176}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a2444a8789ba3b328a795d8b5bc1aed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lineRendererMaterial: {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
-  radius: 0
 --- !u!114 &-3917543891127874133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,6 +219,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 5061671915386074885, guid: f43173e825dd1c000a085a6952e3aabb, type: 3}
   size: 2
+--- !u!114 &8432789311552035587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4537192645525628176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a2444a8789ba3b328a795d8b5bc1aed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lineRendererMaterial: {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+  radius: 0
 --- !u!1001 &4537192647315853476
 PrefabInstance:
   m_ObjectHideFlags: 0

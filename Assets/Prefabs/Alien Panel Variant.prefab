@@ -89,7 +89,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8238708767125014836, guid: 5884ac9ff28e8944b8c424357f127d51, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 689
+      value: 596
       objectReference: {fileID: 0}
     - target: {fileID: 8238708767125014836, guid: 5884ac9ff28e8944b8c424357f127d51, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -109,7 +109,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8238708767125014837, guid: 5884ac9ff28e8944b8c424357f127d51, type: 3}
       propertyPath: m_Name
-      value: Alien Panel
+      value: Alien Panel Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8238708767688150332, guid: 5884ac9ff28e8944b8c424357f127d51, type: 3}
       propertyPath: m_Sprite

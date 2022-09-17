@@ -25,11 +25,11 @@ public class ControlBattleship : ControlUnit
         myCollider = GetComponent<Collider2D>();
         firingTimer = firingTime;
     }   
-    protected override void reactToMouseEvent(int input) {
+    public override void performAction(int input) {
         switch (input) {
             case 0:
             {
-                break;  // do nothing
+                break;     // do nothing, end turn
             }
             case 1:
             {
@@ -39,12 +39,8 @@ public class ControlBattleship : ControlUnit
                 GetComponent<OrbitTarget>().enabled = false;
                 break;
             }
-            default:
-            {
-                Debug.Log("what?!?");
-                break;
-            }
         }
+        endTurn();
     }
     void FixedUpdate()
     {

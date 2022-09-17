@@ -18,9 +18,10 @@ public class ControlMothership : ControlUnit
     public List<GameObject> unitPrefabs;
     void Start()
     {
+        GetComponent<DrawCircle>().radius = summoningRadius;
         myPhysics = GetComponent<NewtonianPhysics>();
     }
-    protected override void reactToMouseEvent(int input) {
+    public override void performAction(int input) {
         switch (input) {
             case 0:
             {
@@ -39,12 +40,12 @@ public class ControlMothership : ControlUnit
                 GetComponent<OrbitTarget>().enabled = false;
                 break;
             }
-            default:
+            case 2:
             {
-                Debug.Log("what?!?");
                 break;
             }
         }
+        endTurn();
     }
     void FixedUpdate()
     {
@@ -82,6 +83,6 @@ public class ControlMothership : ControlUnit
     public void addUnit(int unitIndex, Vector2 location) {
         GameObject unit = GameObject.Instantiate(unitPrefabs[unitIndex], location, Quaternion.identity);
         unit.GetComponent<OrbitTarget>().target = GetComponent<OrbitTarget>().target;
-        setNextUnit(unit);
+        addToUnitChain(unit);
     }
 }

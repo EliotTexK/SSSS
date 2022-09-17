@@ -5,4 +5,8 @@ public class Portal : MonoBehaviour
 {
     // NewtonianPhysics does the REAL implementation
     public Portal outPortal = null;
+
+    void Start() {
+        GameObject.Destroy(this.gameObject,10);
+    }
 }
