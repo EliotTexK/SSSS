@@ -9,16 +9,17 @@ public class ControlMothership : ControlUnit
 {
     public GameObject bulletPrefab;
     public float firingRadius = 4f;
+    public float summoningRadius;
     public float bulletSpeed = 1f;
     public float moveSpeed = 0.3f;
     private NewtonianPhysics myPhysics;
     private Vector2 moveTo;
     private bool isMoving = false;
-
+    public List<GameObject> unitPrefabs;
     void Start()
     {
         myPhysics = GetComponent<NewtonianPhysics>();
-    }   
+    }
     protected override void reactToMouseEvent(int input) {
         switch (input) {
             case 0:
@@ -77,5 +78,10 @@ public class ControlMothership : ControlUnit
         isMoving = false;
         GetComponent<OrbitTarget>().enabled = true;
         GetComponent<OrbitTarget>().applyInitialForce();
+    }
+    public void addUnit(int unitIndex, Vector2 location) {
+        GameObject unit = GameObject.Instantiate(unitPrefabs[unitIndex], location, Quaternion.identity);
+        unit.GetComponent<OrbitTarget>().target = GetComponent<OrbitTarget>().target;
+        setNextUnit(unit);
     }
 }

@@ -8,6 +8,7 @@ public abstract class ControlUnit : MonoBehaviour
     // units are implemented as a linked list
     private GameObject nextUnit = null;
     // Update is called once per frame
+    public Texture2D controlArrow;
     void Update()
     {
         if (!GameManager.Instance.updatePhysics && GameManager.Instance.controlledUnit == this.gameObject)
@@ -44,7 +45,7 @@ public abstract class ControlUnit : MonoBehaviour
     {
         if (!GameManager.Instance.updatePhysics && GameManager.Instance.controlledUnit == this.gameObject)
         {
-            // code for indicating we are controlling THIS unit right now
+            GUI.DrawTexture(new Rect(transform.position.x-32,transform.position.y-32,64,64), controlArrow);
         }
     }
     protected Vector2 getCoordsFromMouse()

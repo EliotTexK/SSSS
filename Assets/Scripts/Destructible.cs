@@ -35,6 +35,7 @@ public class Destructible : MonoBehaviour
             HealthUI.gameObject.SetActive(false);
             toggleDisplayHealth = false;
         }
+        HealthUI.worldCamera = Camera.main;
     }
 
     void FixedUpdate()
@@ -76,13 +77,6 @@ public class Destructible : MonoBehaviour
             UpdateHealthBar(health);
         }
     }
-    void OnGUI()
-    {
-        Vector2 targetPos;
-        targetPos = Camera.main.WorldToScreenPoint(transform.position * new Vector2(1f, -1f));
-        //GUI.Box(new Rect(targetPos.x - 32, targetPos.y - 32, 64, 64), (Mathf.Ceil(health)).ToString());
-    }
-
     void UpdateHealthBar(float health)
     {
         if (toggleDisplayHealth) {
