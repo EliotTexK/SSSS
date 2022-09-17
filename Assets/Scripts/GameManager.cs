@@ -57,21 +57,14 @@ public class GameManager : MonoBehaviour
             float placement = Random.Range(maxDistance * 0.25f, maxDistance * 0.75f);
             humanMothership = GameObject.Instantiate(humanMothershipPrefab, randV2 * placement, Quaternion.identity);
             humanMothership.GetComponent<OrbitTarget>().target = sun.transform;
-            GameObject testExtraUnit = GameObject.Instantiate(humanMothershipPrefab, humanMothership.transform.position + new Vector3(2f,2f,0), Quaternion.identity);
-            testExtraUnit.GetComponent<OrbitTarget>().target = sun.transform;
-            humanMothership.GetComponent<ControlUnit>().setNextUnit(testExtraUnit);
-            GameObject testExtraUnit2 = GameObject.Instantiate(humanMothershipPrefab, humanMothership.transform.position + new Vector3(-2f,-2f,0), Quaternion.identity);
-            testExtraUnit2.GetComponent<OrbitTarget>().target = sun.transform;
-            humanMothership.GetComponent<ControlUnit>().setNextUnit(testExtraUnit2);
+            humanMothership.GetComponent<ControlMothership>().addUnit(0, humanMothership.transform.position + new Vector3(2f,2f,0f));
+            humanMothership.GetComponent<ControlMothership>().addUnit(1, humanMothership.transform.position + new Vector3(-2f,-2f,0f));
         }
         if (alienMothershipPrefab)
         {
             float placement = Random.Range(maxDistance * 0.25f, maxDistance * 0.75f);
             alienMothership = GameObject.Instantiate(alienMothershipPrefab, -randV2 * placement, Quaternion.identity);
             alienMothership.GetComponent<OrbitTarget>().target = sun.transform;
-            GameObject testExtraUnit = GameObject.Instantiate(alienMothershipPrefab, alienMothership.transform.position + new Vector3(2f,2f,0), Quaternion.identity);
-            testExtraUnit.GetComponent<OrbitTarget>().target = sun.transform;
-            alienMothership.GetComponent<ControlUnit>().setNextUnit(testExtraUnit);
         }
         // draw circle around game bounds
         DrawCircle drawCircle = GetComponent<DrawCircle>();
