@@ -35,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -52.353, y: 264.86}
-  m_SizeDelta: {x: 43.6933, y: 20.3205}
+  m_AnchoredPosition: {x: 0.30015, y: 264.86}
+  m_SizeDelta: {x: 149, y: 20.32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8157809386069515893
 CanvasRenderer:
@@ -79,7 +79,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: $300
+  m_Text: $300 - Battleship
 --- !u!1 &1851394074808665112
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,8 +236,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -54.699, y: 93.16}
-  m_SizeDelta: {x: 37.3188, y: 20.3204}
+  m_AnchoredPosition: {x: 0.7203103, y: 93.16}
+  m_SizeDelta: {x: 148.16, y: 20.32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4808644864010907712
 CanvasRenderer:
@@ -280,7 +280,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: $100
+  m_Text: $100 - Money Maker
 --- !u!1 &2488740546884274687
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,8 +437,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -51.822, y: -250.5}
-  m_SizeDelta: {x: 44.7556, y: 18.1958}
+  m_AnchoredPosition: {x: 2.9507, y: -250.5}
+  m_SizeDelta: {x: 154.3012, y: 18.199}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3757902948421374354
 CanvasRenderer:
@@ -481,9 +481,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '$400
-
-'
+  m_Text: $400 - Upgrade Arms
 --- !u!1 &4174211272353062504
 GameObject:
   m_ObjectHideFlags: 0
@@ -720,8 +718,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -53.353, y: -77.608}
-  m_SizeDelta: {x: 43.6933, y: 21.383}
+  m_AnchoredPosition: {x: -0.19985, y: -77.608}
+  m_SizeDelta: {x: 150, y: 21.383}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5221878723388270386
 CanvasRenderer:
@@ -764,7 +762,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: $500
+  m_Text: $500 - Portals
 --- !u!1 &8211382504517431031
 GameObject:
   m_ObjectHideFlags: 0
