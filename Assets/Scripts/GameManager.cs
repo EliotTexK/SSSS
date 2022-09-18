@@ -77,6 +77,9 @@ public class GameManager : MonoBehaviour
         if (Input.GetKey(KeyCode.R)) {
             SceneManager.LoadScene("Level");
         }
+        if (Input.GetKey(KeyCode.R)) {
+            SceneManager.LoadScene("Main Menu");
+        }
         if (Input.GetKey(KeyCode.M)) {
             // SceneManager.LoadScene("Title");
         }
@@ -108,9 +111,9 @@ public class GameManager : MonoBehaviour
                 turnText += controlledUnit.GetComponent<ControlUnit>().getControlText();
             }
         } else if (gameOutcome == 1) {
-            turnText = "Aliens win! Press r to restart";
+            turnText = "Aliens win! Press r to restart or m for main menu";
         } else if (gameOutcome == 2) {
-            turnText = "Humans win! Press r to restart";
+            turnText = "Humans win! Press r to restart or m for main menu";
         }
         GameMessage.Instance.messageText.text = turnText;
     }
