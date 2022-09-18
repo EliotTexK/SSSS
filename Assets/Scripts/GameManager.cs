@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(DrawCircle))]
 public class GameManager : MonoBehaviour
@@ -34,6 +35,8 @@ public class GameManager : MonoBehaviour
     public GameObject alienMothership, humanMothership;
     public float alienMoney = 30, humanMoney = 30;
     public GameObject controlledUnit;
+    // 0 - undecided, 1 - aliens win, 2 - humans win
+    public int gameOutcome;
     void Start()
     {
         // randomly decide who goes first
@@ -71,25 +74,45 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        // wait turns
-        if (updatePhysics) {
-            turnTimer -= Time.fixedDeltaTime;
-            if (turnTimer <= 0) {
-                isHumanTurn = !isHumanTurn; // switch turns
-                updatePhysics = false;      // pause time for decision-making
-                turnTimer = turnLength;     // reset turn timer
-                // give control to the correct mothership unit
-                string turnText;
+        if (Input.GetKey(KeyCode.R)) {
+            SceneManager.LoadScene("Level");
+        }
+        if (Input.GetKey(KeyCode.M)) {
+            // SceneManager.LoadScene("Title");
+        }
+        string turnText = "...";
+        if (gameOutcome == 0) {
+            if (Input.GetKeyDown(KeyCode.R)) {
+                SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+            }
+            // wait turns
+            if (updatePhysics) {
+                turnTimer -= Time.fixedDeltaTime;
+                if (turnTimer <= 0) {
+                    isHumanTurn = !isHumanTurn; // switch turns
+                    updatePhysics = false;      // pause time for decision-making
+                    turnTimer = turnLength;     // reset turn timer
+                    // give control to the correct mothership unit
+                    if (isHumanTurn) {
+                        controlledUnit = humanMothership;
+                    } else {
+                        controlledUnit = alienMothership;
+                    }
+                }
+            } else {
                 if (isHumanTurn) {
-                    controlledUnit = humanMothership;
                     turnText = "(Humans' turn) ";
                 } else {
-                    controlledUnit = alienMothership;
                     turnText = "(Aliens' turn) ";
                 }
-                GameMessage.Instance.messageText.text = turnText + controlledUnit.GetComponent<ControlUnit>().getControlText();
+                turnText += controlledUnit.GetComponent<ControlUnit>().getControlText();
             }
+        } else if (gameOutcome == 1) {
+            turnText = "Aliens win! Press r to restart";
+        } else if (gameOutcome == 2) {
+            turnText = "Humans win! Press r to restart";
         }
+        GameMessage.Instance.messageText.text = turnText;
     }
     public void summonUnit(int type, Vector2 prospectiveCoords) {
         ControlMothership motherShip;

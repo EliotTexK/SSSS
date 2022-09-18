@@ -538,6 +538,7 @@ MonoBehaviour:
   alienMoney: 30
   humanMoney: 30
   controlledUnit: {fileID: 0}
+  gameOutcome: 0
 --- !u!4 &1125652127
 Transform:
   m_ObjectHideFlags: 0

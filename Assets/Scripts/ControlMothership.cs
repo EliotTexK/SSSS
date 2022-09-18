@@ -89,4 +89,11 @@ public class ControlMothership : ControlUnit
     {
         return "left-click: shoot, right-click: move unit";
     }
+    void OnDestroy() {
+        if (isHumanUnit) {
+            GameManager.Instance.gameOutcome = 1;
+        } else {
+            GameManager.Instance.gameOutcome = 2;
+        }
+    }
 }
