@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 4537192645525628176}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 3.5, y: 3.5, z: 3.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8903031948148947902}
@@ -199,7 +199,7 @@ MonoBehaviour:
   isHumanUnit: 1
   controlReticle: {fileID: 7771165773867506028}
   bulletPrefab: {fileID: 710355210728467592, guid: be7edda08ebde26febf60b3bee6d57ab, type: 3}
-  firingRadius: 4.5
+  firingRadius: 5.5
   summoningRadius: 10
   bulletSpeed: 1
   moveSpeed: 0.2
