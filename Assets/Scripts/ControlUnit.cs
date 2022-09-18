@@ -8,7 +8,7 @@ public abstract class ControlUnit : MonoBehaviour
     // units are implemented as a linked list
     private GameObject nextUnit = null;
     // Update is called once per frame
-    public Texture2D controlArrow;
+    public Canvas controlReticle;
     protected void endTurn()
     {
         if (nextUnit) {
@@ -16,6 +16,7 @@ public abstract class ControlUnit : MonoBehaviour
             // delay calling setNextUnit, so that the same mouse
             // input isn't used for the next unit
             Invoke("setNextUnit",0.1f);
+            nextUnit.GetComponent<ControlUnit>().getControlText();
         }
         else {
             // finished with our turn
@@ -39,6 +40,7 @@ public abstract class ControlUnit : MonoBehaviour
     public abstract void onPortal();
     // ID 0 = fire, ID 1 = move, ID 2 = do nothing and end turn
     public abstract void performAction(int actionID);
+    public abstract string getControlText();
     // recursively traverse the linked list, adding a unit to the end
     protected void addToUnitChain(GameObject givenNextUnit)
     {
@@ -62,6 +64,14 @@ public abstract class ControlUnit : MonoBehaviour
             GameManager.Instance.humanMothership.GetComponent<ControlUnit>().addToUnitChain(nextUnit);
         } else {
             GameManager.Instance.alienMothership.GetComponent<ControlUnit>().addToUnitChain(nextUnit);
+        }
+    }
+
+    void Update() {
+        if (GameManager.Instance.controlledUnit == this.gameObject) {
+            controlReticle.gameObject.SetActive(true);
+        } else {
+            controlReticle.gameObject.SetActive(false);
         }
     }
 }

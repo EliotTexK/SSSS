@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     public float turnTimer = 0;
     public bool isHumanTurn;
     public GameObject alienMothership, humanMothership;
-    public float alienEnergy, humanEnergy;
+    public float alienMoney = 30, humanMoney = 30;
     public GameObject controlledUnit;
     void Start()
     {
@@ -79,8 +79,15 @@ public class GameManager : MonoBehaviour
                 updatePhysics = false;      // pause time for decision-making
                 turnTimer = turnLength;     // reset turn timer
                 // give control to the correct mothership unit
-                if (isHumanTurn) controlledUnit = humanMothership;
-                else controlledUnit = alienMothership;
+                string turnText;
+                if (isHumanTurn) {
+                    controlledUnit = humanMothership;
+                    turnText = "(Humans' turn) ";
+                } else {
+                    controlledUnit = alienMothership;
+                    turnText = "(Aliens' turn) ";
+                }
+                GameMessage.Instance.messageText.text = turnText + controlledUnit.GetComponent<ControlUnit>().getControlText();
             }
         }
     }
@@ -104,5 +111,19 @@ public class GameManager : MonoBehaviour
             motherShip = alienMothership.GetComponent<ControlMothership>();
         }
         motherShip.bulletPrefab = nukePrefab;
+    }
+    public float getCurrentTeamMoney() {
+        if (GameManager.Instance.isHumanTurn) {
+            return humanMoney;
+        } else {
+            return alienMoney;
+        }
+    }
+    public void subtractCurrentTeamMoney(float money) {
+        if (GameManager.Instance.isHumanTurn) {
+            humanMoney -= money;
+        } else {
+            alienMoney -= money;
+        }
     }
 }

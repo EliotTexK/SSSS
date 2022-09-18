@@ -89,4 +89,8 @@ public class ControlBattleship : ControlUnit
         GetComponent<OrbitTarget>().enabled = true;
         GetComponent<OrbitTarget>().applyInitialForce();
     }
+    public override string getControlText()
+    {
+        return "left-click: skip turn, right-click: move unit";
+    }
 }

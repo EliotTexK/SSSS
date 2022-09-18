@@ -63,9 +63,9 @@ public class ControlMothership : ControlUnit
                 }
             } else {
                 if (isHumanUnit) {
-                    GameManager.Instance.humanEnergy += Time.fixedDeltaTime;
+                    GameManager.Instance.humanMoney += Time.fixedDeltaTime * 20f;
                 } else {
-                    GameManager.Instance.alienEnergy += Time.fixedDeltaTime;
+                    GameManager.Instance.alienMoney += Time.fixedDeltaTime * 20f;
                 }
             }
         }
@@ -84,5 +84,9 @@ public class ControlMothership : ControlUnit
         GameObject unit = GameObject.Instantiate(unitPrefabs[unitIndex], location, Quaternion.identity);
         unit.GetComponent<OrbitTarget>().target = GetComponent<OrbitTarget>().target;
         addToUnitChain(unit);
+    }
+    public override string getControlText()
+    {
+        return "left-click: shoot, right-click: move unit";
     }
 }

@@ -49,9 +49,9 @@ public class ControlEnergyCollector : ControlUnit
                 }
             }
             if (isHumanUnit) {
-                GameManager.Instance.humanEnergy += Time.fixedDeltaTime * collectionEfficiency;
+                GameManager.Instance.humanMoney += Time.fixedDeltaTime * collectionEfficiency * 20f;
             } else {
-                GameManager.Instance.alienEnergy += Time.fixedDeltaTime * collectionEfficiency;
+                GameManager.Instance.alienMoney += Time.fixedDeltaTime * collectionEfficiency * 20f;
             }
         }  
     }
@@ -64,5 +64,9 @@ public class ControlEnergyCollector : ControlUnit
         isMoving = false;
         GetComponent<OrbitTarget>().enabled = true;
         GetComponent<OrbitTarget>().applyInitialForce();
+    }
+    public override string getControlText()
+    {
+        return "left-click: skip turn, right-click: move unit";
     }
 }
